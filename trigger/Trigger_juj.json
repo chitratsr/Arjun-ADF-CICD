@@ -1,0 +1,28 @@
+{
+	"name": "Trigger_juj",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "DeltaCopyFromBlobPipeline",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 1,
+			"startTime": "2020-08-26T17:05:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
